@@ -40,7 +40,6 @@ module.exports.getPrivateKeyAsync = async () => {
 module.exports.getAssetMetadataSync = ({ update, filePath, ext, isLaunchAsset, platform }) => {
   const normalizedFilePath = path.normalize(filePath).replace(/\\/g, '/');
   const assetFilePath = path.join(update.path, normalizedFilePath);
-  //const assetFilePath = `${update.path}/${filePath}`
   const asset = fs.readFileSync(path.resolve(assetFilePath), null)
   const assetHash = getBase64URLEncoding(createHash(asset, 'sha256', 'base64'))
   const key = createHash(asset, 'md5', 'hex')
